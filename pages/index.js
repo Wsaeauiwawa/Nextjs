@@ -1,65 +1,101 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import CarList from '../components/Car/CarList';
 
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+const DUMMY_MEETUPS = [
+  {
+    id: '1',
+    title: 'Toyota',
+    image:
+      'https://s.isanook.com/au/0/rp/r/w850/ya0xa0m1w0/aHR0cHM6Ly9zLmlzYW5vb2suY29tL2F1LzAvdWQvMTUvNzU1MzIvbmV3LWNhci1tYXkuanBn.jpg',
+    // address: 'Some address 5, 12345 Some City',
+    description: 'C-HR BY KARL LAGERFELD',
+  },
+  {
+    id: '2',
+    title: 'Honda',
+    image:
+      'https://s.isanook.com/au/0/rp/r/w728/ya0xa0m1w0/aHR0cHM6Ly9zLmlzYW5vb2suY29tL2F1LzAvdWQvMTUvNzU0ODQvaG9uZGEuanBn.jpg',
+    // address: 'Some address 10, 12345 Some City',
+    description: 'All-new Honda City 2020',
+  },
+  {
+    id: '3',
+    title: 'Mitsubish',
+    image:
+      'https://s.isanook.com/au/0/rp/r/w728/ya0xa0m1w0/aHR0cHM6Ly9zLmlzYW5vb2suY29tL2F1LzAvdWQvMTUvNzU1MjcvbWl0enUzLmpwZw==.jpg',
+    // address: 'Some address 10, 12345 Some City',
+    description: 'Xpander Cross 2020',
+  },
+  {
+    id: '4',
+    title: 'Chevrolet',
+    image:
+      'https://s.isanook.com/au/0/rp/r/w728/ya0xa0m1w0/aHR0cHM6Ly9zLmlzYW5vb2suY29tL2F1LzAvdWQvMTUvNzU1MDAvY2hldjQuanBn.jpg',
+    // address: 'Some address 10, 12345 Some City',
+    description: 'Chevrolet Captiva',
+  },
+  {
+    id: '5',
+    title: 'Isuzu',
+    image:
+      'https://s.isanook.com/au/0/rp/r/w728/ya0xa0m1w0/aHR0cHM6Ly9zLmlzYW5vb2suY29tL2F1LzAvdWQvMTUvNzU1MzEvaXN1enUxLmpwZw==.jpg',
+    // address: 'Some address 10, 12345 Some City',
+    description: 'MU-X The New ONYX New',
+  },
+  {
+    id: '6',
+    title: 'BMW',
+    image:
+      'https://s.isanook.com/au/0/rp/r/w728/ya0xa0m1w0/aHR0cHM6Ly9zLmlzYW5vb2suY29tL2F1LzAvdWQvMTUvNzU1MTkvYm13LmpwZw==.jpg',
+    // address: 'Some address 10, 12345 Some City',
+    description: 'M4 Coupe Competition Package',
+  },
+  {
+    id: '7',
+    title: 'Mercedes-Benz',
+    image:
+      'https://s.isanook.com/au/0/rp/r/w728/ya0xa0m1w0/aHR0cHM6Ly9zLmlzYW5vb2suY29tL2F1LzAvdWQvMTUvNzU1MTEvYmVuejEuanBn.jpg',
+    // address: 'Some address 10, 12345 Some City',
+    description: 'E 300 Cabriolet ',
+  },
+  {
+    id: '8',
+    title: 'MG',
+    image:
+      'https://s.isanook.com/au/0/rp/r/w728/ya0xa0m1w0/aHR0cHM6Ly9zLmlzYW5vb2suY29tL2F1LzAvdWQvMTUvNzU0ODgvbWcuanBn.jpg',
+    // address: 'Some address 10, 12345 Some City',
+    description: 'NEW MG ZS 2020',
+  },
+  {
+    id: '9',
+    title: 'Mazda',
+    image:
+      'https://s.isanook.com/au/0/rp/r/w728/ya0xa0m1w0/aHR0cHM6Ly9zLmlzYW5vb2suY29tL2F1LzAvdWQvMTUvNzU1MjgvbWF6ZGEyLmpwZw==.jpg',
+    // address: 'Some address 10, 12345 Some City',
+    description: 'New Mazda2 Minorchange',
+  },
+  {
+    id: '10',
+    title: 'Ford',
+    image:
+      'https://s.isanook.com/au/0/rp/r/w728/ya0xa0m1w0/aHR0cHM6Ly9zLmlzYW5vb2suY29tL2F1LzAvdWQvMTUvNzU0OTUvZm9yZC5qcGc=.jpg',
+    // address: 'Some address 10, 12345 Some City',
+    description: 'Ford Ranger Wildtrak X',
+  },
+  
+];
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+function HomePage(props) {
+  return <CarList meetups={props.meetups} />;
 }
+
+export async function getStaticProps() {
+  // fetch data from an API
+  return {
+    props: {
+      meetups: DUMMY_MEETUPS
+    },
+    revalidate: 1
+  }; 
+}
+
+export default HomePage;
